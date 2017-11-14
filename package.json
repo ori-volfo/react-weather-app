@@ -2,7 +2,9 @@
   "scripts": {
     "serve:webpack": "webpack-dev-server --hot --inline --content-base ./src",
     "serve:json": "json-server db.json",
-    "start": "concurrently \"yarn serve:webpack\" \"yarn serve:json\""
+    "start": "concurrently \"yarn serve:webpack\" \"yarn serve:json\"",
+    "build": "babel src -d lib",
+    "test": "jest"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
@@ -32,5 +34,4 @@
     "react"
   ],
   "rules": {}
-
 }

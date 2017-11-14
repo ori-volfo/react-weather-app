@@ -14,15 +14,22 @@ class ZipForm extends React.Component {
     render(){
         return (
             <div className="zip-form">
-                <form onSubmit={this.submitZipCode}>
+                {/*<form onSubmit={this.submitZipCode}>*/}
+                <form>
                     <label htmlFor="zipcode">Zip Code</label>
-                    <input
-                        className="form-control"
-                        type="input"
-                        name="zipcode"
-                        value={this.state.zipcode}
-                        onInput={this.inputUpdated} />
-                    <button type="submit" className='btn btn-success'>Get the forecast!!</button>
+                    <select onChange={this.submitZipCode}>
+                        <option value="">Select a zipcode</option>
+                        {this.props.zips.map(zip =>
+                            <option key={zip} value={zip}>{zip}</option>
+                        )}
+                    </select>
+                    {/*<input*/}
+                        {/*className="form-control"*/}
+                        {/*type="input"*/}
+                        {/*name="zipcode"*/}
+                        {/*value={this.state.zipcode}*/}
+                        {/*onInput={this.inputUpdated} />*/}
+                    {/*<button type="submit" className='btn btn-success'>Get the forecast!!</button>*/}
                 </form>
             </div>
         );
