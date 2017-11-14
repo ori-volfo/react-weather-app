@@ -10,7 +10,6 @@ class App extends React.Component {
 
         this.state = {
             zipcode: '',
-            weatherData: [],
             city: {},
             dates: [],
             selectedDate: null
@@ -20,11 +19,9 @@ class App extends React.Component {
     }
 
     render() {
-        const { weatherData, dates, city, selectedDate} = this.state;
-        const zips = weatherData.map(w => w.id);
-
+        const { dates, city, selectedDate} = this.state;
         return <div className="app">
-            <ZipForm  zips={zips} onSubmit={this.onFormSubmit} />
+            <ZipForm  onSubmit={this.onFormSubmit} />
             <WeatherList days={dates} onDayClicked={this.onDayClicked}/>
             {selectedDate !== null && <CurrentDay day={dates[selectedDate]} city={city} />}
         </div>;
