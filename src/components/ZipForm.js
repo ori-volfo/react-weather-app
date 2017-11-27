@@ -9,14 +9,13 @@ class ZipForm extends React.Component {
             zipcode: ''
         };
 
-        this.submitZipCode = this.submitZipCode.bind(this);
     }
     render(){
         return (
             <div className="zip-form">
                 <form>
                     <label htmlFor="zipcode">Zip Code</label>
-                    <select onChange={this.submitZipCode}>
+                    <select onChange={this.submitZipCode.bind(this)}>
                         <option value="">Select a zipcode</option>
                         {this.props.zips.map(zip =>
                             <option key={zip} value={zip}>{zip}</option>

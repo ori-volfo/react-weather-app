@@ -15,16 +15,14 @@ class App extends React.Component {
             weatherData: [],
             selectedDate: null
         };
-        this.onFormSubmit = this.onFormSubmit.bind(this);
-        this.onDayClicked = this.onDayClicked.bind(this);
     }
 
     render() {
         const { weatherData, dates, city, selectedDate} = this.state;
         const zips = weatherData.map(val => val.id);
         return <div className="app">
-            <ZipForm  zips={zips} onSubmit={this.onFormSubmit} />
-            <WeatherList days={dates} onDayClicked={this.onDayClicked}/>
+            <ZipForm  zips={zips} onSubmit={this.onFormSubmit.bind(this)} />
+            <WeatherList days={dates} onDayClicked={this.onDayClicked.bind(this)}/>
             {selectedDate !== null && <CurrentDay day={dates[selectedDate]} city={city} />}
         </div>;
     }
